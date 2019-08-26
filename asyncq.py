@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# asyncq.py
+# asyncq.py  -- a queue with producers and consumers handling jobs.
 
 import asyncio
 from os import urandom
@@ -43,7 +43,8 @@ async def consume(number: int, q: asyncio.Queue) -> None:
         print(f"{name}:starting")
         t_wait = time.perf_counter()
         item, t = await q.get()
-        print(f"{name}:got item {item} after {time.perf_counter()-t_wait:0.5f} idle, delayed {time.perf_counter() - t:0.5f} seconds")
+        print(f"{name}:got item {item} after {time.perf_counter()-t_wait:0.5f} idle, "
+             f"delayed {time.perf_counter() - t:0.5f} seconds. {q.qsize()} in Queue")
         await rand_sleep(caller=name)
         now = time.perf_counter()
         print(f"{name}: Completed element {item} in {now - t:0.5f} seconds.")
