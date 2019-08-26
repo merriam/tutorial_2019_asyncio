@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# areq.py -- scrap websites asynchronously
+# areq.py - Gather URLs from web pages listed in `urls.txt`, write into `foundurls.txt`.
 
 
 import asyncio

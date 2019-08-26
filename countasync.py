@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# countasync.py
+# countasync.py - Basic interleaved sleeping and counting with decorators and experiments.
 
 import asyncio
 import time
