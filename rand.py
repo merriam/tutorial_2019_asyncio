@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# rand.py
+# rand.py - Gather a set of task that have random retry times to complete.
 
 import asyncio
 import random
@@ -24,12 +24,11 @@ async def make_random(threshold: int = 6, number=0) -> int:
 
 
 async def main():
-    res = await asyncio.gather(*(make_random(random.randint(5, 10), i) for i in range(9)))
+    res = await asyncio.gather(*(make_random(random.randint(5, 9), i) for i in range(9)))
     return res
 
 
 if __name__ == "__main__":
     random.seed(444)
-    r1, r2, r3 = asyncio.run(main())
-    print()
-    print(f"r1: {r1}, r2: {r2}, r3: {r3}")
+    rvalues= asyncio.run(main())
+    print(f"r values: {rvalues}")
